@@ -1,0 +1,11 @@
+{
+    "copyright":{
+       "years":"2025~2025",
+       "authors":"David SPORN"
+    },
+    "project":{
+       "name":"Micro-controller devices",
+       "description":"A C++ abstraction layer to model devices linked to a micro-controller.",
+       "licence":"GPL-3.0-or-later"
+    }
+}
