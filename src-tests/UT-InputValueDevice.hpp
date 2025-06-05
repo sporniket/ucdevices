@@ -55,23 +55,41 @@ private:
 Test(InputValueDevice, read_must_fail_when_check_readability_fails) {
   ConcreteInputDevice d;
 
+  // prepare
   d.whenReadableIs(false);
-  cr_assert_not(d.read());
-  cr_assert_eq(d.read().error(), ConcreteError::NOT_READABLE);
+
+  // execute
+  auto result = d.read();
+
+  // verify
+  cr_assert_not(result);
+  cr_assert_eq(result.error(), ConcreteError::NOT_READABLE);
 }
 
 Test(InputValueDevice, read_must_fail_when_actual_read_fails) {
   ConcreteInputDevice d;
 
+  // prepare
   d.whenReadSuccessIs(false);
-  cr_assert_not(d.read());
-  cr_assert_eq(d.read().error(), ConcreteError::READ_ERROR);
+
+  // execute
+  auto result = d.read();
+
+  // verify
+  cr_assert_not(result);
+  cr_assert_eq(result.error(), ConcreteError::READ_ERROR);
 }
 
 Test(InputValueDevice, read_must_succeed_when_all_is_well) {
   ConcreteInputDevice d;
 
+  // prepare
   d.whenValueIs(42);
-  cr_assert(d.read());
-  cr_assert_eq(d.read().value(), 42);
+
+  // execute
+  auto result = d.read();
+
+  // verify
+  cr_assert(result);
+  cr_assert_eq(result.value(), 42);
 }

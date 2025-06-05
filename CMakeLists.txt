@@ -35,6 +35,7 @@ file(GLOB_RECURSE FORMATTABLE_SOURCES
        ${PROJECT_SOURCE_DIR}/include/*.hpp
        ${PROJECT_SOURCE_DIR}/src/*.cpp
        ${PROJECT_SOURCE_DIR}/src-tests/*.cpp
+       ${PROJECT_SOURCE_DIR}/src-tests/*.hpp
 )
 
 # Custom targets for pretty printing the sources (check and perform)
