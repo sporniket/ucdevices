@@ -42,11 +42,6 @@ private:
     }
   }
 
-  /**
-   * Extension point to implement the actual read operation.
-   *
-   * @returns the result of the read operation.
-   */
   virtual std::expected<uint8_t, ConcreteError> doRead() noexcept {
     if (readSuccess) {
       return value;
