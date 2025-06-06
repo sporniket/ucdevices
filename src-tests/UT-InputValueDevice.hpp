@@ -9,7 +9,6 @@ A C++ abstraction layer to model devices linked to a micro-controller.
 ****************************************/
 
 // ================[BEGIN typical specialization]==================
-enum ConcreteError { READ_ERROR, NOT_READABLE };
 class ConcreteInputDevice final
     : public cmspk::ucdev::InputValueDevice<uint8_t, ConcreteError> {
 public:

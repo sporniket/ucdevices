@@ -17,5 +17,10 @@ A C++ abstraction layer to model devices linked to a micro-controller.
 // project
 #include "cmspk/ucdev.hpp"
 
+// ================[BEGIN common code]==================
+enum ConcreteError { READ_ERROR, NOT_READABLE, WRITE_ERROR, NOT_WRITABLE };
+// ================[END common code]==================
+
 // test suites
 #include "UT-InputValueDevice.hpp"
+#include "UT-OutputValueDevice.hpp"

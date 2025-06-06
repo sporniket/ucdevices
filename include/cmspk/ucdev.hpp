@@ -27,6 +27,7 @@ namespace cmspk {};
 namespace cmspk::ucdev {};
 
 #include "cmspk/ucdev/InputValueDevice.hpp"
+#include "cmspk/ucdev/OutputValueDevice.hpp"
 
 // ================[ END OF CODE ]================
 #endif

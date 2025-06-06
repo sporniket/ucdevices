@@ -17,3 +17,7 @@ _Work In Progress_
 ### InputValueDevice
 
 _See the [test suite of InputValueDevice](./src-tests/UT-InputValueDevice.hpp)_
+
+### OutputValueDevice
+
+_See the [test suite of OutputValueDevice](./src-tests/UT-OutputValueDevice.hpp)_
