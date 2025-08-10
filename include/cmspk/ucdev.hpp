@@ -28,6 +28,7 @@ namespace cmspk::ucdev {};
 
 #include "cmspk/ucdev/InputValueDevice.hpp"
 #include "cmspk/ucdev/OutputValueDevice.hpp"
+#include "cmspk/ucdev/ReadWriteAssertions.hpp"
 
 // ================[ END OF CODE ]================
 #endif

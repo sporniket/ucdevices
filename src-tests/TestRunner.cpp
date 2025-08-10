@@ -24,3 +24,4 @@ enum ConcreteError { READ_ERROR, NOT_READABLE, WRITE_ERROR, NOT_WRITABLE };
 // test suites
 #include "UT-InputValueDevice.hpp"
 #include "UT-OutputValueDevice.hpp"
+#include "UT-ReadWriteAssertions.hpp"

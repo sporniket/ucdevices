@@ -16,8 +16,12 @@ _Work In Progress_
 
 ### InputValueDevice
 
-_See the [test suite of InputValueDevice](./src-tests/UT-InputValueDevice.hpp)_
+_See the [test suite of InputValueDevice](https://github.com/sporniket/ucdevices/blob/main/src-tests/UT-InputValueDevice.hpp)_
 
 ### OutputValueDevice
 
-_See the [test suite of OutputValueDevice](./src-tests/UT-OutputValueDevice.hpp)_
+_See the [test suite of OutputValueDevice](https://github.com/sporniket/ucdevices/blob/main/src-tests/UT-OutputValueDevice.hpp)_
+
+### ReadWriteAssertions
+
+Write a class extending the `ReadWriteAssertions` class, and override the appropriate assertions to suit your needs.
