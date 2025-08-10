@@ -47,6 +47,7 @@ add_custom_target(check-prettier
 )
 add_custom_target(prettier
     COMMAND clang-format
+    --verbose
     -i
     --style=file
     ${FORMATTABLE_SOURCES}

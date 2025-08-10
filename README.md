@@ -25,3 +25,5 @@ _See the [test suite of OutputValueDevice](https://github.com/sporniket/ucdevice
 ### ReadWriteAssertions
 
 Write a class extending the `ReadWriteAssertions` class, and override the appropriate assertions to suit your needs.
+
+_See the [test suite of OutputValueDevice](https://github.com/sporniket/ucdevices/blob/main/src-tests/UT-ReadWriteAssertions.hpp)_

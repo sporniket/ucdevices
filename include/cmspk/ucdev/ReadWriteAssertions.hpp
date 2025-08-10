@@ -34,42 +34,42 @@ public:
    *
    * @returns `false`, always.
    */
-  bool isReadable() const noexcept { return false; }
+  virtual bool isReadable() const noexcept { return false; }
 
   /**
    * Asserts the unreadability of the pin.
    *
    * @returns `true`, always.
    */
-  bool isNotReadable() const noexcept { return true; }
+  virtual bool isNotReadable() const noexcept { return true; }
 
   /**
    * Asserts the writability of the pin.
    *
    * @returns `false`, always.
    */
-  bool isWritable() const noexcept { return false; }
+  virtual bool isWritable() const noexcept { return false; }
 
   /**
    * Asserts the unwritability of the pin.
    *
    * @returns `true`, always.
    */
-  bool isNotWritable() const noexcept { return true; }
+  virtual bool isNotWritable() const noexcept { return true; }
 
   /**
    * Asserts the enabling of the pin.
    *
    * @returns `false`, always.
    */
-  bool isEnabled() const noexcept { return false; }
+  virtual bool isEnabled() const noexcept { return false; }
 
   /**
    * Asserts the disabling of the pin.
    *
    * @returns `true`, always.
    */
-  bool isDisabled() const noexcept { return true; }
+  virtual bool isDisabled() const noexcept { return true; }
 };
 
 // ================[ END OF CODE ]================
