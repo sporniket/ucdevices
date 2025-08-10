@@ -12,88 +12,88 @@ A C++ abstraction layer to model devices linked to a micro-controller.
 
 #include "cmspk/ucdev/ReadWriteAssertions.hpp"
 class TypicalEnabledReadableDevice : public cmspk::ucdev::ReadWriteAssertions {
-public:
-  virtual ~TypicalEnabledReadableDevice() {}
+  public:
+    virtual ~TypicalEnabledReadableDevice() {}
 
-  virtual bool isReadable() const noexcept { return true; }
+    virtual bool isReadable() const noexcept { return true; }
 
-  virtual bool isEnabled() const noexcept { return true; }
+    virtual bool isEnabled() const noexcept { return true; }
 };
 
 class TypicalEnabledWritableDevice : public cmspk::ucdev::ReadWriteAssertions {
-public:
-  virtual ~TypicalEnabledWritableDevice() {}
+  public:
+    virtual ~TypicalEnabledWritableDevice() {}
 
-  virtual bool isWritable() const noexcept { return true; }
+    virtual bool isWritable() const noexcept { return true; }
 
-  virtual bool isEnabled() const noexcept { return true; }
+    virtual bool isEnabled() const noexcept { return true; }
 };
 
 // ================[END typical override]==================
 
 Test(ReadWriteAssertions, is_not_readable_by_default) {
-  cmspk::ucdev::ReadWriteAssertions rwasserts;
+    cmspk::ucdev::ReadWriteAssertions rwasserts;
 
-  cr_assert(rwasserts.isNotReadable());
-  cr_assert_not(rwasserts.isReadable());
+    cr_assert(rwasserts.isNotReadable());
+    cr_assert_not(rwasserts.isReadable());
 }
 
 Test(ReadWriteAssertions, is_not_writable_by_default) {
-  cmspk::ucdev::ReadWriteAssertions rwasserts;
+    cmspk::ucdev::ReadWriteAssertions rwasserts;
 
-  cr_assert(rwasserts.isNotWritable());
-  cr_assert_not(rwasserts.isWritable());
+    cr_assert(rwasserts.isNotWritable());
+    cr_assert_not(rwasserts.isWritable());
 }
 
 Test(ReadWriteAssertions, is_disabled_by_default) {
-  cmspk::ucdev::ReadWriteAssertions rwasserts;
+    cmspk::ucdev::ReadWriteAssertions rwasserts;
 
-  cr_assert(rwasserts.isDisabled());
-  cr_assert_not(rwasserts.isEnabled());
+    cr_assert(rwasserts.isDisabled());
+    cr_assert_not(rwasserts.isEnabled());
 }
 
 Test(ReadWriteAssertions, assertions_are_polymorphic) {
-  TypicalEnabledReadableDevice readable;
-  TypicalEnabledWritableDevice writable;
-  cmspk::ucdev::ReadWriteAssertions *rwasserts;
+    TypicalEnabledReadableDevice readable;
+    TypicalEnabledWritableDevice writable;
+    cmspk::ucdev::ReadWriteAssertions *rwasserts;
 
-  rwasserts = &readable;
+    rwasserts = &readable;
 
-  cr_assert(rwasserts->isReadable());
-  cr_assert(rwasserts->isNotWritable());
-  cr_assert(rwasserts->isEnabled());
-  cr_assert_not(rwasserts->isNotReadable());
-  cr_assert_not(rwasserts->isWritable());
-  cr_assert_not(rwasserts->isDisabled());
+    cr_assert(rwasserts->isReadable());
+    cr_assert(rwasserts->isNotWritable());
+    cr_assert(rwasserts->isEnabled());
+    cr_assert_not(rwasserts->isNotReadable());
+    cr_assert_not(rwasserts->isWritable());
+    cr_assert_not(rwasserts->isDisabled());
 
-  rwasserts = &writable;
+    rwasserts = &writable;
 
-  cr_assert(rwasserts->isNotReadable());
-  cr_assert(rwasserts->isWritable());
-  cr_assert(rwasserts->isEnabled());
-  cr_assert_not(rwasserts->isReadable());
-  cr_assert_not(rwasserts->isNotWritable());
-  cr_assert_not(rwasserts->isDisabled());
+    cr_assert(rwasserts->isNotReadable());
+    cr_assert(rwasserts->isWritable());
+    cr_assert(rwasserts->isEnabled());
+    cr_assert_not(rwasserts->isReadable());
+    cr_assert_not(rwasserts->isNotWritable());
+    cr_assert_not(rwasserts->isDisabled());
 }
 
 Test(SimpleReadableDeviceAssertions, is_readable_and_enabled) {
-  cmspk::ucdev::SimpleReadableDeviceAssertions rwasserts;
+    cmspk::ucdev::SimpleReadableDeviceAssertions rwasserts;
 
-  cr_assert(rwasserts.isReadable());
-  cr_assert_not(rwasserts.isNotReadable());
-  cr_assert(rwasserts.isNotWritable());
-  cr_assert_not(rwasserts.isWritable());
-  cr_assert(rwasserts.isEnabled());
-  cr_assert_not(rwasserts.isDisabled());
+    cr_assert(rwasserts.isReadable());
+    cr_assert_not(rwasserts.isNotReadable());
+    cr_assert(rwasserts.isNotWritable());
+    cr_assert_not(rwasserts.isWritable());
+    cr_assert(rwasserts.isEnabled());
+    cr_assert_not(rwasserts.isDisabled());
 }
 
 Test(SimpleWritableDeviceAssertions, is_writable_and_enabled) {
-  cmspk::ucdev::SimpleWritableDeviceAssertions rwasserts;
+    cmspk::ucdev::SimpleWritableDeviceAssertions rwasserts;
 
-  cr_assert(rwasserts.isNotReadable());
-  cr_assert_not(rwasserts.isReadable());
-  cr_assert(rwasserts.isWritable());
-  cr_assert_not(rwasserts.isNotWritable());
-  cr_assert(rwasserts.isEnabled());
-  cr_assert_not(rwasserts.isDisabled());
+    cr_assert(rwasserts.isNotReadable());
+    cr_assert_not(rwasserts.isReadable());
+    cr_assert(rwasserts.isWritable());
+    cr_assert_not(rwasserts.isNotWritable());
+    cr_assert(rwasserts.isEnabled());
+    cr_assert_not(rwasserts.isDisabled());
 }

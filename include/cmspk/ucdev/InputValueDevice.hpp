@@ -26,36 +26,37 @@ namespace cmspk::ucdev {
  * > **Licence** GPL 3.0 or later.
  */
 
-template <typename T, typename E> class InputValueDevice {
-public:
-  virtual ~InputValueDevice() noexcept {}
+template <typename T, typename E>
+class InputValueDevice {
+  public:
+    virtual ~InputValueDevice() noexcept {}
 
-  /**
-   * Read operation.
-   *
-   * @returns the result of the read operation.
-   */
-  std::expected<T, E> read() noexcept {
-    return checkReadability().and_then([this]() { return doRead(); });
-  }
+    /**
+     * Read operation.
+     *
+     * @returns the result of the read operation.
+     */
+    std::expected<T, E> read() noexcept {
+        return checkReadability().and_then([this]() { return doRead(); });
+    }
 
-private:
-  /**
-   * Extension point to implement the check performed before trying the read
-   * operation.
-   *
-   * @returns the result of the check.
-   */
-  virtual std::expected<void, E> checkReadability() noexcept = 0;
+  private:
+    /**
+     * Extension point to implement the check performed before trying the read
+     * operation.
+     *
+     * @returns the result of the check.
+     */
+    virtual std::expected<void, E> checkReadability() noexcept = 0;
 
-  /**
-   * Extension point to implement the actual read operation.
-   *
-   * @returns the result of the read operation.
-   */
-  virtual std::expected<T, E> doRead() noexcept = 0;
+    /**
+     * Extension point to implement the actual read operation.
+     *
+     * @returns the result of the read operation.
+     */
+    virtual std::expected<T, E> doRead() noexcept = 0;
 };
 
 // ================[ END OF CODE ]================
-} // namespace cmspk::ucdev
+}  // namespace cmspk::ucdev
 #endif

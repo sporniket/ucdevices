@@ -26,53 +26,53 @@ namespace cmspk::ucdev {
  */
 
 class ReadWriteAssertions {
-public:
-  virtual ~ReadWriteAssertions() noexcept {}
+  public:
+    virtual ~ReadWriteAssertions() noexcept {}
 
-  /**
-   * Asserts the readability of the pin, to be overriden to change the default
-   * value.
-   *
-   * @returns `false`, always.
-   */
-  virtual bool isReadable() const noexcept { return false; }
+    /**
+     * Asserts the readability of the pin, to be overriden to change the default
+     * value.
+     *
+     * @returns `false`, always.
+     */
+    virtual bool isReadable() const noexcept { return false; }
 
-  /**
-   * Asserts the unreadability of the pin.
-   *
-   * @returns `true`, always.
-   */
-  bool isNotReadable() const noexcept { return !isReadable(); }
+    /**
+     * Asserts the unreadability of the pin.
+     *
+     * @returns `true`, always.
+     */
+    bool isNotReadable() const noexcept { return !isReadable(); }
 
-  /**
-   * Asserts the writability of the pin, to be overriden to change the default
-   * value.
-   *
-   * @returns `false`, always.
-   */
-  virtual bool isWritable() const noexcept { return false; }
+    /**
+     * Asserts the writability of the pin, to be overriden to change the default
+     * value.
+     *
+     * @returns `false`, always.
+     */
+    virtual bool isWritable() const noexcept { return false; }
 
-  /**
-   * Asserts the unwritability of the pin.
-   *
-   * @returns `true`, always.
-   */
-  bool isNotWritable() const noexcept { return !isWritable(); }
+    /**
+     * Asserts the unwritability of the pin.
+     *
+     * @returns `true`, always.
+     */
+    bool isNotWritable() const noexcept { return !isWritable(); }
 
-  /**
-   * Asserts the enabling of the pin, to be overriden to change the default
-   * value.
-   *
-   * @returns `false`, always.
-   */
-  virtual bool isEnabled() const noexcept { return false; }
+    /**
+     * Asserts the enabling of the pin, to be overriden to change the default
+     * value.
+     *
+     * @returns `false`, always.
+     */
+    virtual bool isEnabled() const noexcept { return false; }
 
-  /**
-   * Asserts the disabling of the pin.
-   *
-   * @returns `true`, always.
-   */
-  bool isDisabled() const noexcept { return !isEnabled(); }
+    /**
+     * Asserts the disabling of the pin.
+     *
+     * @returns `true`, always.
+     */
+    bool isDisabled() const noexcept { return !isEnabled(); }
 };
 
 /**
@@ -85,12 +85,12 @@ public:
  * > **Licence** GPL 3.0 or later.
  */
 class SimpleReadableDeviceAssertions : public ReadWriteAssertions {
-public:
-  virtual ~SimpleReadableDeviceAssertions() {}
+  public:
+    virtual ~SimpleReadableDeviceAssertions() {}
 
-  virtual bool isReadable() const noexcept { return true; }
+    virtual bool isReadable() const noexcept { return true; }
 
-  virtual bool isEnabled() const noexcept { return true; }
+    virtual bool isEnabled() const noexcept { return true; }
 };
 
 /**
@@ -103,14 +103,14 @@ public:
  * > **Licence** GPL 3.0 or later.
  */
 class SimpleWritableDeviceAssertions : public ReadWriteAssertions {
-public:
-  virtual ~SimpleWritableDeviceAssertions() {}
+  public:
+    virtual ~SimpleWritableDeviceAssertions() {}
 
-  virtual bool isWritable() const noexcept { return true; }
+    virtual bool isWritable() const noexcept { return true; }
 
-  virtual bool isEnabled() const noexcept { return true; }
+    virtual bool isEnabled() const noexcept { return true; }
 };
 
 // ================[ END OF CODE ]================
-} // namespace cmspk::ucdev
+}  // namespace cmspk::ucdev
 #endif

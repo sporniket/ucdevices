@@ -26,37 +26,37 @@ namespace cmspk::ucdev {
  * > **Licence** GPL 3.0 or later.
  */
 
-template <typename T, typename E> class OutputValueDevice {
-public:
-  virtual ~OutputValueDevice() noexcept {}
+template <typename T, typename E>
+class OutputValueDevice {
+  public:
+    virtual ~OutputValueDevice() noexcept {}
 
-  /**
-   * Write operation.
-   *
-   * @returns the result of the write operation.
-   */
-  std::expected<void, E> write(T value) noexcept {
-    return checkWritability().and_then(
-        [this, value]() { return doWrite(value); });
-  }
+    /**
+     * Write operation.
+     *
+     * @returns the result of the write operation.
+     */
+    std::expected<void, E> write(T value) noexcept {
+        return checkWritability().and_then([this, value]() { return doWrite(value); });
+    }
 
-private:
-  /**
-   * Extension point to implement the check performed before trying the write
-   * operation.
-   *
-   * @returns the result of the check.
-   */
-  virtual std::expected<void, E> checkWritability() noexcept = 0;
+  private:
+    /**
+     * Extension point to implement the check performed before trying the write
+     * operation.
+     *
+     * @returns the result of the check.
+     */
+    virtual std::expected<void, E> checkWritability() noexcept = 0;
 
-  /**
-   * Extension point to implement the actual write operation.
-   *
-   * @returns the result of the write operation.
-   */
-  virtual std::expected<void, E> doWrite(T value) noexcept = 0;
+    /**
+     * Extension point to implement the actual write operation.
+     *
+     * @returns the result of the write operation.
+     */
+    virtual std::expected<void, E> doWrite(T value) noexcept = 0;
 };
 
 // ================[ END OF CODE ]================
-} // namespace cmspk::ucdev
+}  // namespace cmspk::ucdev
 #endif
