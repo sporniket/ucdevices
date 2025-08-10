@@ -10,15 +10,14 @@ A C++ abstraction layer to model devices linked to a micro-controller.
 
 // ================[BEGIN typical override]==================
 
+#include "cmspk/ucdev/ReadWriteAssertions.hpp"
 class TypicalEnabledReadableDevice : public cmspk::ucdev::ReadWriteAssertions {
 public:
   virtual ~TypicalEnabledReadableDevice() {}
 
   virtual bool isReadable() const noexcept { return true; }
-  virtual bool isNotReadable() const noexcept { return false; }
 
   virtual bool isEnabled() const noexcept { return true; }
-  virtual bool isDisabled() const noexcept { return false; }
 };
 
 class TypicalEnabledWritableDevice : public cmspk::ucdev::ReadWriteAssertions {
@@ -26,10 +25,8 @@ public:
   virtual ~TypicalEnabledWritableDevice() {}
 
   virtual bool isWritable() const noexcept { return true; }
-  virtual bool isNotWritable() const noexcept { return false; }
 
   virtual bool isEnabled() const noexcept { return true; }
-  virtual bool isDisabled() const noexcept { return false; }
 };
 
 // ================[END typical override]==================
@@ -77,4 +74,26 @@ Test(ReadWriteAssertions, assertions_are_polymorphic) {
   cr_assert_not(rwasserts->isReadable());
   cr_assert_not(rwasserts->isNotWritable());
   cr_assert_not(rwasserts->isDisabled());
+}
+
+Test(SimpleReadableDeviceAssertions, is_readable_and_enabled) {
+  cmspk::ucdev::SimpleReadableDeviceAssertions rwasserts;
+
+  cr_assert(rwasserts.isReadable());
+  cr_assert_not(rwasserts.isNotReadable());
+  cr_assert(rwasserts.isNotWritable());
+  cr_assert_not(rwasserts.isWritable());
+  cr_assert(rwasserts.isEnabled());
+  cr_assert_not(rwasserts.isDisabled());
+}
+
+Test(SimpleWritableDeviceAssertions, is_writable_and_enabled) {
+  cmspk::ucdev::SimpleWritableDeviceAssertions rwasserts;
+
+  cr_assert(rwasserts.isNotReadable());
+  cr_assert_not(rwasserts.isReadable());
+  cr_assert(rwasserts.isWritable());
+  cr_assert_not(rwasserts.isNotWritable());
+  cr_assert(rwasserts.isEnabled());
+  cr_assert_not(rwasserts.isDisabled());
 }
